@@ -1,0 +1,328 @@
+
+
+<div class="card-body">
+
+    <div class="container">
+
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-dark mb-2" data-toggle="modal" data-target="#myModal">
+          Add Content
+        </button>
+      
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            
+              <!-- Modal Header -->
+              <div class="modal-header">
+            
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                <form [formGroup]='myform' (ngSubmit)="submitdata()">
+                  
+                    <div class="container-fluid" style="width:700px">
+                  <label for="">Select Service *</label>
+     
+                  <select name="service" id="" class="form-control" formControlName='fk'>
+
+                    <option value="">Select Service</option>
+                    <option *ngFor="let s of sdata" [value]="s.id">{{s.name}}</option>
+
+                </select>
+                <label for="">Enter description *</label>
+               
+               
+               
+                <angular-editor id="editor"   style="height:500px" formControlName='meta'></angular-editor>
+              
+                <label>Image1</label>
+                <input type="file" class="form-control" multiple   name="img1" ngModel  formControlName='file'  (change)="onfileupload1($event)">
+      
+               <!-- <label>Image2</label>
+                <input type="file" class="form-control" multiple   name="img2" ngModel  formControlName='file1'  (change)="onfileupload2($event)"> 
+       -->
+              
+              </div>
+              <div class="container-fluid" style="width:700px">
+              <label for="">Heading 1 *</label>
+              <input type="text" name="hed1" class="form-control" formControlName="hed1">
+              
+                            <label for="">Enter description *</label>
+                           
+                            <angular-editor id="editor1"   style="height:500px" formControlName='des1'></angular-editor>
+                          </div>
+                          <div class="container-fluid" style="width:700px">
+                            <label for="">Heading 2 *</label>
+                            <input type="text" name="hed2" class="form-control" formControlName="hed2">
+                            
+                                          <label for="">Enter description *</label>
+                                         
+                                          <angular-editor id="editor2"   style="height:500px" formControlName='des2'></angular-editor>
+                                        </div>
+                                        <div class="container-fluid" style="width:700px">
+                                          <label for="">Heading 3 *</label>
+                                          <input type="text" name="hed3" class="form-control" formControlName="hed3">
+                                          
+                                                        <label for="">Enter description *</label>
+                                                       
+                                                        <angular-editor id="editor3"   style="height:500px" formControlName='des3'></angular-editor>
+                                                      </div>
+                                                      <div class="container-fluid" style="width:700px">
+                                                        <label for="">Heading 4 *</label>
+                                                        <input type="text" name="hed1" class="form-control" formControlName="hed4">
+                                                        
+                                                                      <label for="">Enter description *</label>
+                                                                     
+                                                                      <angular-editor id="editor4"   style="height:500px" formControlName='des4'></angular-editor>
+                                                                    </div>
+                                                                    <div class="container-fluid" style="width:700px">
+                                                                      <label for="">Heading 5 *</label>
+                                                                      <input type="text" name="hed1" class="form-control" formControlName="hed5">
+                                                                      
+                                                                                    <label for="">Enter description *</label>
+                                                                                   
+                                                                                    <angular-editor id="editor5"   style="height:500px" formControlName='des5'></angular-editor>
+                                                                                  </div>
+                                                                                  <div class="container-fluid" style="width:700px">
+                                                                                    <label for="">Heading 6</label>
+                                                                                    <input type="text" name="hed1" class="form-control" formControlName="hed6">
+                                                                                    
+                                                                                                  <label for="">Enter description </label>
+                                                                                                 
+                                                                                                  <angular-editor id="editor6"   style="height:500px" formControlName='des6'></angular-editor>
+                                                                                                </div>
+                                                                                                <div class="container-fluid" style="width:700px">
+                                                                                                  <label for="">Heading 7</label>
+                                                                                                  <input type="text" name="hed7" class="form-control" formControlName="hed7">
+                                                                                                  
+                                                                                                                <label for="">Enter description </label>
+                                                                                                               
+                                                                                                                <angular-editor id="editor7"   style="height:500px" formControlName='des7'></angular-editor>
+                                                                                                              </div>
+                                                                                                              <div class="container-fluid" style="width:700px">
+                                                                                                                <label for="">Heading 8</label>
+                                                                                                                <input type="text" name="hed8" class="form-control" formControlName="hed8">
+                                                                                                                
+                                                                                                                              <label for="">Enter description</label>
+                                                                                                                             
+                                                                                                                              <angular-editor id="editor8"   style="height:500px" formControlName='des8'></angular-editor>
+                                                                                                                            </div>
+                                                                                                                            <div class="container-fluid" style="width:700px">
+                                                                                                                              <label for="">Heading 9 </label>
+                                                                                                                              <input type="text" name="hed9" class="form-control" formControlName="hed9">
+                                                                                                                              
+                                                                                                                                            <label for="">Enter description 
+                                                                                                                                              
+                                                                                                                                            </label>
+                                                                                                                                           
+                                                                                                                                            <angular-editor id="editor9"   style="height:500px" formControlName='des9'></angular-editor>
+                                                                                                                                          </div>
+                                                                                                                                           <div class="container-fluid" style="width:700px">
+              <label for="">Heading 10</label>
+              <input type="text" name="hed10" class="form-control" formControlName="hed10">
+              
+                            <label for="">Enter description</label>
+                           
+                            <angular-editor id="editor10"   style="height:500px" formControlName='des10'></angular-editor>
+                          </div>
+
+                          <div class="container-fluid" style="width:700px">
+                            <label for="">Heading 11</label>
+                            <input type="text" name="hed11" class="form-control" formControlName="hed11">
+                            
+                                          <label for="">Enter description</label>
+                                         
+                                          <angular-editor id="editor11"   style="height:500px" formControlName='des11'></angular-editor>
+                                        </div>
+                                        <div class="container-fluid" style="width:700px">
+                                        <button class="btn btn-secondary mt-3">Submit</button>
+                                        </div>
+              </form>
+            
+           
+        
+              
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Service</th>
+        <th>Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+        
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of cdata">
+          <td>
+{{d.name}}
+          </td>
+          <td>
+            {{d.meta}}
+                      </td>
+                      <td>
+                        <button class="btn btn-primary" (click)=edit(d.pid)  data-toggle="modal" data-target="#myModal1">Edit</button>
+                                  </td>
+                                  <td>
+                                    <button class="btn btn-danger" (click)=delete(d.pid) >Delete</button>
+                                              </td>
+        </tr>
+      </tbody>
+    
+    </table>
+
+
+    <div class="modal fade" id="myModal1">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+        
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form [formGroup]='myform'  *ngFor="let d of edata">
+              
+                <div class="container-fluid" style="width:700px">
+              <label for="">Select Service *</label>
+            <select name="service" id="" class="form-control" formControlName='fk'  [(ngModel)]="d.name">
+
+<option *ngFor="let s of sdata" [value]="s.id" >{{s.name}}</option>
+
+            </select>
+            <label for="">Enter description *</label>
+           
+           
+           
+            <angular-editor id="editor"   style="height:500px" formControlName='meta' [(ngModel)]="d.meta"></angular-editor>
+          
+            <label>Image1</label>
+            <input type="file" class="form-control" multiple   name="img1" ngModel  formControlName='file'  (change)="onfileupload1($event)" [(ngModel)]="d.img1">
+  
+           <!-- <label>Image2</label>
+            <input type="file" class="form-control" multiple   name="img2" ngModel  formControlName='file1'  (change)="onfileupload2($event)"> 
+   -->
+          
+          </div>
+          <div class="container-fluid" style="width:700px">
+          <label for="">Heading 1 *</label>
+          <input type="text" name="hed1" class="form-control" formControlName="hed1" [(ngModel)]="d.hed1">
+          
+                        <label for="">Enter description *</label>
+                       
+                        <angular-editor id="editor1"   style="height:500px" formControlName='des1' [(ngModel)]="d.des1"></angular-editor>
+                      </div>
+                      <div class="container-fluid" style="width:700px">
+                        <label for="">Heading 2 *</label>
+                        <input type="text" name="hed2" class="form-control" formControlName="hed2" [(ngModel)]="d.hed2">
+                        
+                                      <label for="">Enter description *</label>
+                                     
+                                      <angular-editor id="editor2"   style="height:500px" formControlName='des2' [(ngModel)]="d.des2"></angular-editor>
+                                    </div>
+                                    <div class="container-fluid" style="width:700px">
+                                      <label for="">Heading 3 *</label>
+                                      <input type="text" name="hed3" class="form-control" formControlName="hed3" [(ngModel)]="d.hed3">
+                                      
+                                                    <label for="">Enter description *</label>
+                                                   
+                                                    <angular-editor id="editor3"   style="height:500px" formControlName='des3' [(ngModel)]="d.des3"></angular-editor>
+                                                  </div>
+                                                  <div class="container-fluid" style="width:700px">
+                                                    <label for="">Heading 4 *</label>
+                                                    <input type="text" name="hed1" class="form-control" formControlName="hed4" [(ngModel)]="d.hed4"> 
+                                                    
+                                                                  <label for="">Enter description *</label>
+                                                                 
+                                                                  <angular-editor id="editor4"   style="height:500px" formControlName='des4' [(ngModel)]="d.des4"></angular-editor>
+                                                                </div>
+                                                                <div class="container-fluid" style="width:700px">
+                                                                  <label for="">Heading 5 *</label>
+                                                                  <input type="text" name="hed1" class="form-control" formControlName="hed5" [(ngModel)]="d.hed5">
+                                                                  
+                                                                                <label for="">Enter description *</label>
+                                                                               
+                                                                                <angular-editor id="editor5"   style="height:500px" formControlName='des5' [(ngModel)]="d.des5"></angular-editor>
+                                                                              </div>
+                                                                              <div class="container-fluid" style="width:700px">
+                                                                                <label for="">Heading 6</label>
+                                                                                <input type="text" name="hed1" class="form-control" formControlName="hed6" [(ngModel)]="d.hed6">
+                                                                                
+                                                                                              <label for="">Enter description </label>
+                                                                                             
+                                                                                              <angular-editor id="editor6"   style="height:500px" formControlName='des6' [(ngModel)]="d.des6"></angular-editor>
+                                                                                            </div>
+                                                                                            <div class="container-fluid" style="width:700px">
+                                                                                              <label for="">Heading 7</label>
+                                                                                              <input type="text" name="hed7" class="form-control" formControlName="hed7" [(ngModel)]="d.hed7">
+                                                                                              
+                                                                                                            <label for="">Enter description </label>
+                                                                                                           
+                                                                                                            <angular-editor id="editor7"   style="height:500px" formControlName='des7' [(ngModel)]="d.des7"></angular-editor>
+                                                                                                          </div>
+                                                                                                          <div class="container-fluid" style="width:700px">
+                                                                                                            <label for="">Heading 8</label>
+                                                                                                            <input type="text" name="hed8" class="form-control" formControlName="hed8" [(ngModel)]="d.hed8">
+                                                                                                            
+                                                                                                                          <label for="">Enter description</label>
+                                                                                                                         
+                                                                                                                          <angular-editor id="editor8"   style="height:500px" formControlName='des8' [(ngModel)]="d.des8"></angular-editor>
+                                                                                                                        </div>
+                                                                                                                        <div class="container-fluid" style="width:700px">
+                                                                                                                          <label for="">Heading 9 </label>
+                                                                                                                          <input type="text" name="hed9" class="form-control" formControlName="hed9" [(ngModel)]="d.hed9">
+                                                                                                                          
+                                                                                                                                        <label for="">Enter description 
+                                                                                                                                          
+                                                                                                                                        </label>
+                                                                                                                                       
+                                                                                                                                        <angular-editor id="editor9"   style="height:500px" formControlName='des9' [(ngModel)]="d.des9"></angular-editor>
+                                                                                                                                      </div>
+                                                                                                                                       <div class="container-fluid" style="width:700px">
+          <label for="">Heading 10</label>
+          <input type="text" name="hed10" class="form-control" formControlName="hed10" [(ngModel)]="d.hed10">
+          
+                        <label for="">Enter description</label>
+                       
+                        <angular-editor id="editor10"   style="height:500px" formControlName='des10' [(ngModel)]="d.des10"></angular-editor>
+                      </div>
+
+                      <div class="container-fluid" style="width:700px">
+                        <label for="">Heading 11</label>
+                        <input type="text" name="hed11" class="form-control" formControlName="hed11" [(ngModel)]="d.hed11">
+                        
+                                      <label for="">Enter description</label>
+                                     
+                                      <angular-editor id="editor11"   style="height:500px" formControlName='des11' [(ngModel)]="d.des11"></angular-editor>
+                                    </div>
+                                    <div class="container-fluid" style="width:700px">
+                                    <button class="btn btn-secondary mt-3" (click)="update(d.pid)">Update</button>
+                                    </div>
+          </form>
+        
+       
+    
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+
+ 
+    </div>

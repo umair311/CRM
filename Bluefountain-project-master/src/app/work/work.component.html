@@ -1,0 +1,172 @@
+<div class="card-body">
+    <div style="display: flex;">
+      <button class="btn btn-dark mb-1 " data-toggle="modal" data-target="#myModal1">Add Work</button>
+    </div>
+       <table id="example2" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Work</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Link</th>
+          <th>Image</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          
+        </tr>
+        </thead>
+        <tbody  *ngFor="let d of data; let i = index">
+        <tr>
+          <td>{{i+1}}</td>
+          <td>
+             {{d.name}}
+          </td>
+          <td>
+            {{d.cat_name}}
+         </td>
+          
+           <td>
+              {{d.des}}
+           </td>
+           <td>
+            {{d.link}}
+         </td>
+           <td>
+              <img src="{{d.img}}" />
+            </td>
+            <td>
+           <button class="btn btn-primary" (click)="edit(d.portfolio_id)"  data-toggle="modal" data-target="#myModal">Edit</button>
+           </td>
+           <td>
+            <button class="btn btn-danger" (click)="delete(d.portfolio_id)">Delete</button>
+            </td>
+               </tr>
+        
+        </tbody>
+       
+      </table> 
+    </div>
+  
+   
+  
+  
+  
+  
+     <div class="modal fade" id="myModal1" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+    
+            </div>
+            <div class="modal-body">
+                <form [formGroup]='myform'>
+                    
+                     
+                  <div class="form-group container-fluid">
+                  <label for="name">Work:</label>
+                 
+                  <input type="text" class="form-control"  placeholder="Enter Work" name="name" ngModel  formControlName='name' >
+                
+               </div>
+               <div class="form-group container-fluid">
+               <label for="">Select Category *</label>
+     
+               <select name="service" id="" class="form-control" formControlName='fk'>
+
+                 <option value="">Select Category</option>
+                 <option *ngFor="let s of cdata" [value]="s.id">{{s.cat_name}}</option>
+
+             </select>
+            </div>
+               
+                 <div class="form-group container-fluid">
+                    <label for="name">Description:</label>
+                    <angular-editor id="editor1"   style="height:500px" formControlName='des'></angular-editor>
+    
+                  
+                 </div>
+                   
+                 <div class="form-group container-fluid">
+                  <label for="name">Link:</label>
+                 
+                  <input type="text" class="form-control"  placeholder="Enter Link here" name="link" ngModel  formControlName='link' >
+                
+               </div>
+                    
+                 <div class="form-group container-fluid">
+                    <label for="name">Image:</label>
+                   
+                    <input type="file" class="form-control" multiple   name="img1" ngModel  formControlName='file'  (change)="onfileupload($event)">
+                  
+                 </div>          
+                   
+              
+                    <button class="btn btn-primary" (click)="CallPostApi()">Submit</button>
+                  </form>
+                </div>
+            </div>
+          
+          </div>
+        </div> 
+  
+  
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+      
+              </div>
+              <div class="modal-body" *ngFor="let d of edata;">
+                  <form [formGroup]='myform' >
+                
+                      
+                   <div class="form-group container-fluid">
+                    <label for="name">Work:</label>
+                   
+                    <input type="text" class="form-control"  placeholder="{{d.name}}" name="name"   formControlName='name' [(ngModel)]="d.name" >
+                  
+                 </div>
+                    
+                 <div class="form-group container-fluid">
+                  <label for="">Select Category *</label>
+        
+                  <select name="d.cat_name" id="" ngModel   [(ngModel)]="d.cat_name" class="form-control" formControlName='fk'>
+   
+                    <option value=""  >Select Category</option>
+                    <option *ngFor="let s of cdata" [value]="s.id" >{{s.cat_name}}</option>
+   
+                </select>
+               </div>
+
+                   <div class="form-group container-fluid">
+                      <label for="name">Description:</label>
+                      <angular-editor id="editor1" style="height:500px" formControlName='des'  [(ngModel)]="d.des"></angular-editor>
+      
+                    
+                   </div>
+                   <div class="form-group container-fluid">
+                    <label for="name">Link:</label>
+                   
+                    <input type="text" class="form-control"  placeholder="{{d.link}}" name="name"   formControlName='link' [(ngModel)]="d.link" >
+                  
+                 </div>
+                      
+                      
+                   <div class="form-group container-fluid">
+                      <label for="name">Image:</label>
+                     
+                      <input type="file" class="form-control" multiple   name="img1" ngModel  formControlName='file'  (change)="onfileupload($event)"  [(ngModel)]="d.img">
+                    
+                   </div>          
+                     
+                
+                      <button class="btn btn-primary" (click)="update(d.id)">Submit</button>
+                    </form>
+                  </div>
+              </div>
+            
+            </div>
+          </div>   
