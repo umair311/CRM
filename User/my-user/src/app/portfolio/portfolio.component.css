@@ -1,0 +1,15 @@
+.link a 
+    {
+        display: inline-block;
+        padding: 3px 7px;
+        margin: 2px;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        outline: none;
+        transition: color 0.4s ease-out 0s, background 0.4s ease-out 0s;
+    }
+    .link a:hover {
+        border-color: #0ca2e0;
+        background-color: limegreen;
+        color: maroon;
+    }

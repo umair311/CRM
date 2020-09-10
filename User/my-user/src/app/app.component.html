@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-sm bg-white navbar-dark " style="position:fixed; margin-bottom: 200px;width: 100%;z-index: 99999999;">
+  <!-- Brand -->
+  <a class="navbar-brand" routerLink="/home"><img src="../assets/axcel_logo_mobile.png" alt=""></a>
+
+  <!-- Links -->
+  <ul class="navbar-nav ml-auto nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/portfolio"><b>Our Work</b></a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown" href="#" id="navbardrop" data-toggle="dropdown" >
+        <b>Services</b>
+      </a>
+      <div class="dropdown-menu"  >
+        <a class="dropdown-item" *ngFor="let d of data" [routerLink]="['/service', d.name]" (click)="allServices(d.name)"><b>{{d.name}}</b></a>
+       
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><b>About</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><b>Contact</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/news"><b>Latest news</b></a>
+    </li>
+
+    <!-- Dropdown -->
+   
+  </ul>
+</nav>
+<br>
+
+<div>
+ 
+  <router-outlet></router-outlet></div>
+
+<footer class="page-footer font-small bg-dark pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <a class="navbar-brand pt-5" href="#"><img src="../assets/axcel_logo_mobile.png" alt=""></a>
+
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-white">
+
+        <!-- Links -->
+        <h5 class="text-uppercase font-weight-bold">Our Product</h5>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+        <ul class="list-unstyled text-white">
+          <li>
+            <a class="text-white" routerLink="/portfolio">Our Work</a>
+          </li>
+          <li>
+            <a class="text-white" href="#!">Services</a>
+          </li>
+          <li>
+            <a class="text-white" href="#!">About</a>
+          </li>
+          <li>
+            <a class="text-white" href="#!">Contect</a>
+          </li>
+          <li>
+            <a class="text-white" href="#!">Latest News</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-white">
+
+        <!-- Links -->
+        <!-- <h5 class="text-uppercase">Links</h5> -->
+
+        <h5 class="text-uppercase font-weight-bold">Contact</h5>
+        <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>
+          <i class="fas fa-home mr-3"></i> 17 Civic Centre, Barkat Market,Lahore</p>
+        <p>
+          <i class="fas fa-envelope mr-3"></i> info@124.29.217.124</p>
+        <p>
+          <i class="fas fa-phone mr-3"></i> +92 423.594.1084</p>
+        <p>
+          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
+    <a href="#" class="text-white"> Axcel World</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+  
